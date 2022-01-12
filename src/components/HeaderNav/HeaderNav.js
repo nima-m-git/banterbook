@@ -29,7 +29,7 @@ const HeaderNav = ({ logout }) => {
     <header className="header">
       <Link to="/">
         <header>
-          <h1 className="logo">Nimabook</h1>
+          <h1 className="logo">Banter</h1>
         </header>
       </Link>
       <nav className="navbar">

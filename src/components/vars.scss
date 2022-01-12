@@ -3,14 +3,18 @@ $fb-green: rgb(66, 183, 42);
 $fb-logo-blue: rgb(24, 119, 242);
 $input-grey: rgb(245, 246, 247);
 
+$dark-grey: rgb(31, 31, 36);
+$grey-2: rgb(52, 54, 65);
+$grey-3: rgb(52, 54, 65);
+
 @mixin fb-box {
   border: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-    rgba(0, 0, 0, 0.1) 0px 8px 16px 0px;
+  box-shadow: rgba(171, 171, 171, 0.1) 0px 2px 4px 0px,
+    rgba(171, 171, 171, 0.1) 0px 8px 16px 0px;
   padding: 1.5em;
   margin: 0 auto;
   border-radius: 15px;
-  background: white;
+  background: rgba(104, 104, 104, 0.329);
 }
 
 @mixin btn($background, $hover) {
@@ -19,7 +23,7 @@ $input-grey: rgb(245, 246, 247);
   height: 50px;
   color: white;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     background: $hover;
@@ -27,5 +31,5 @@ $input-grey: rgb(245, 246, 247);
 }
 
 @mixin submit-btn {
-  @include btn(rgb(24, 119, 242), #156cdd);
+  @include btn(rgb(69, 112, 168), #156cdd);
 }

@@ -27,7 +27,7 @@ const Login = ({ setHeaders }) => {
 
   return (
     <div className="login">
-      <header>Nimabook</header>
+      <header>Welcome Banter!</header>
       {signupPopup ? (
         <Signup closePopup={() => setSignupPopup(false)} />
       ) : (

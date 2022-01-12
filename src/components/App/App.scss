@@ -6,14 +6,23 @@ $header-height: 100px;
   box-sizing: border-box;
 }
 
-#root,
-body {
-  background: rgb(240, 242, 245);
+html,
+body,
+#app,
+#app > div {
   height: 100%;
+  min-height: fit-content;
 }
 
-.app {
-  background: rgb(240, 242, 245);
+#root,
+body {
+  background: linear-gradient(135deg, rgb(10, 16, 24), black);
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+#root {
+  height: fit-content;
 }
 
 .container {
@@ -53,7 +62,7 @@ img {
 }
 
 .signup-btn {
-  @include btn($fb-green, rgb(0, 160, 0));
+  @include btn(rgb(69, 157, 144), rgb(83, 176, 171));
 }
 
 button {

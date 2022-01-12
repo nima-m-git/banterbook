@@ -16,12 +16,25 @@
     margin: 30px 0;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px 0px;
-    background: white;
-    padding: 16px;
+    background: $dark-grey;
+    color: rgb(179, 179, 179);
+    padding: 1em;
+    min-width: 400px;
   }
 }
 
 .post {
+  .post-info {
+    .author {
+      width: calc(100% + 2em);
+      background: $grey-3;
+      padding: 1em;
+      margin: 0 -1em;
+      border-radius: 5px;
+      transform: scale(1.03);
+    }
+  }
+
   .likes {
     position: relative;
   }
@@ -37,7 +50,7 @@
   }
 
   .comment {
-    background: $input-grey;
+    background: $grey-2;
     border-radius: 15px;
     padding: 7px 10px;
     margin: 20px 10px;
@@ -45,7 +58,44 @@
   }
 
   .content {
-    margin-bottom: 0;
+    margin: 1em 0;
+  }
+
+  .stats-bar {
+    margin: 1em 0;
+  }
+
+  .actions-bar {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 -1em;
+    background: black;
+
+    button {
+      height: 100%;
+      width: 100%;
+      padding: 1em;
+      color: grey;
+      font-size: 1.2em;
+      border: 2px solid black;
+      background: $dark-grey;
+      border-radius: 7px;
+
+      &:hover {
+        color: rgb(194, 194, 194);
+      }
+
+      &.like-button {
+        border-left: none;
+        &.active {
+          color: rgb(238, 73, 73);
+        }
+      }
+
+      &.comment-button {
+        border-right: none;
+      }
+    }
   }
 
   .comment-box {

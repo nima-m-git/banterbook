@@ -15,6 +15,7 @@ const ExpandLikes = ({ post }) => (
 
 const Post = ({ refresh, post }) => {
   const [expandLikes, setExpandLikes] = useState(false);
+  const [showRespond, setShowRespond] = useState(false);
 
   const likePost = async (e) => {
     e.preventDefault();
@@ -48,25 +49,35 @@ const Post = ({ refresh, post }) => {
         </Link>
 
         <p className="content">{post.content}</p>
-        <div className="flex-bar">
-          <button className="like" onClick={likePost}>
-            {!!post.liked ? "unlike" : "like"}
-          </button>
+        <div className="stats-bar">
+          <span
+            className="number-likes"
+            onMouseEnter={() => setExpandLikes(true)}
+            onMouseLeave={() => setExpandLikes(false)}
+          >
+            {post?.likes?.length || "0"} Likes
+          </span>
+          {expandLikes && <ExpandLikes {...{ post }} />}
+          {" · "}
+          <span>{post?.comments?.length} Comments</span>
+        </div>
 
-          <div className="likes">
-            <button
-              className="number-likes"
-              onMouseEnter={() => setExpandLikes(true)}
-              onMouseLeave={() => setExpandLikes(false)}
-            >
-              Likes ({post?.likes?.length || "0"})
-            </button>
-            {expandLikes && <ExpandLikes {...{ post }} />}
-          </div>
+        <div className="actions-bar">
+          <button
+            className={`like-button ${post.liked && "active"}`}
+            onClick={likePost}
+          >
+            {!!post.liked ? "Unlike" : "Like"}
+          </button>
+          <button
+            className="comment-button"
+            onClick={() => setShowRespond(!showRespond)}
+          >
+            Comment
+          </button>
         </div>
       </div>
       <div className="comments">
-        <CommentBox {...{ refresh }} postId={post._id} />
         {post.comments &&
           [...post.comments]
             .sort((a, b) => (a.dateAdded > b.dateAdded ? 1 : -1))
@@ -78,6 +89,7 @@ const Post = ({ refresh, post }) => {
                 </div>
               );
             })}
+        {showRespond && <CommentBox {...{ refresh }} postId={post._id} />}
       </div>
     </div>
   );

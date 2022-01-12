@@ -45,7 +45,7 @@ const UserPage = () => {
       )}
       {error && <div className="error">{error}</div>}
       {user && (
-        <div>
+        <>
           <div className="profilePic" onClick={() => setChangeImage(true)}>
             <img
               src={user?.image || "/empty_profile.png"}
@@ -63,7 +63,7 @@ const UserPage = () => {
               <p>No posts to show</p>
             )}
           </div>
-        </div>
+        </>
       )}
     </div>
   );
