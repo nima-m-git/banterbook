@@ -33,6 +33,12 @@
       border-radius: 5px;
       transform: scale(1.03);
     }
+
+    .content {
+      font-size: 2em;
+      font-weight: 300;
+      color: $white;
+    }
   }
 
   .likes {
@@ -49,20 +55,9 @@
     }
   }
 
-  .comment {
-    background: $grey-2;
-    border-radius: 15px;
-    padding: 7px 10px;
-    margin: 20px 10px;
-    height: fit-content;
-  }
-
-  .content {
-    margin: 1em 0;
-  }
-
   .stats-bar {
     margin: 1em 0;
+    color: $grey-1;
   }
 
   .actions-bar {
@@ -83,18 +78,45 @@
 
       &:hover {
         color: rgb(194, 194, 194);
+        background: $grey-3;
       }
 
       &.like-button {
         border-left: none;
         &.active {
           color: rgb(238, 73, 73);
+
+          &:hover {
+            color: rgb(179, 71, 71);
+          }
         }
       }
 
       &.comment-button {
         border-right: none;
       }
+    }
+  }
+
+  .comment {
+    display: flex;
+    align-items: flex-start;
+    margin: 1em 0;
+
+    .author {
+      background: black;
+      padding: 0.8em;
+      border-radius: 5px;
+    }
+
+    .content {
+      background: $grey-3;
+      border-radius: 15px;
+      padding: 1em;
+      height: fit-content;
+      flex: 1;
+      margin: 0;
+      margin-left: 1em;
     }
   }
 

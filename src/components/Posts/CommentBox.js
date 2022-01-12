@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import TextareaAutosize from "react-textarea-autosize";
+import { AnimatePresence, motion } from "framer-motion";
 
 const CommentBox = ({ postId, refresh }) => {
   const [comment, setComment] = useState("");
@@ -29,20 +31,25 @@ const CommentBox = ({ postId, refresh }) => {
   };
 
   return (
-    <form className="comment-box" onSubmit={handleSubmit}>
-      <label>
-        Reply:
-        <textarea
-          onChange={(e) => setComment(e.target.value)}
-          value={comment}
-          rows={1}
-          cols={40}
-          maxLength={300}
-        />
-      </label>
-      <button className="submit-btn">Submit</button>
+    <motion.form
+      className="comment-box"
+      onSubmit={handleSubmit}
+      // key="commentBox"
+      // initial={{ y: -25, height: "0px" }}
+      // animate={{ y: 0, height: "fit-content" }}
+      // exit={{ y: -25, height: "0px" }}
+    >
+      <TextareaAutosize
+        onChange={(e) => setComment(e.target.value)}
+        value={comment}
+        rows={1}
+        cols={40}
+        maxLength={300}
+        placeholder="Write a reply..."
+      />
+      <motion.button className="submit-btn">Submit</motion.button>
       {errors && errors.map((error) => <div className="error">{error}</div>)}
-    </form>
+    </motion.form>
   );
 };
 

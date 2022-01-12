@@ -6,12 +6,17 @@ $header-height: 100px;
   box-sizing: border-box;
 }
 
+iframe {
+  display: none;
+}
+
 html,
 body,
 #app,
 #app > div {
-  height: 100%;
-  min-height: fit-content;
+  height: fit-content;
+  min-height: 100%;
+  margin: 0;
 }
 
 #root,
@@ -19,10 +24,13 @@ body {
   background: linear-gradient(135deg, rgb(10, 16, 24), black);
   height: 100%;
   background-repeat: no-repeat;
+  font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #root {
   height: fit-content;
+  min-height: 100%;
 }
 
 .container {
@@ -36,14 +44,19 @@ body {
 
 textarea {
   border-radius: 20px;
-  // border: 0.5px solid grey;
-  border: none;
+  border: 2px solid $grey-2;
   padding: 1em;
   font-family: inherit;
   resize: none;
   font-weight: 300;
   width: 100%;
-  background: rgb(240, 242, 245);
+  background: $dark-grey;
+  color: $white;
+  font-size: 1em;
+
+  &:focus-visible {
+    outline: none;
+  }
 
   & :focus {
     outline-style: solid;
@@ -69,6 +82,7 @@ button {
   border-radius: 10px;
   border: none;
   cursor: pointer;
+  transition: all 0.15s ease-out;
 }
 
 .flex-bar {

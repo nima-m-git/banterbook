@@ -1,5 +1,6 @@
-const { default: axios } = require("axios");
-const { useState } = require("react/cjs/react.development");
+import TextareaAutosize from "react-textarea-autosize";
+import axios from "axios";
+import { useState } from "react";
 
 const PostForm = ({ refresh }) => {
   const [content, setContent] = useState("");
@@ -22,12 +23,12 @@ const PostForm = ({ refresh }) => {
   return (
     <form className="postForm" onSubmit={handleSubmit}>
       <label>
-        <textarea
+        <TextareaAutosize
           onChange={(e) => setContent(e.target.value)}
           value={content}
           rows={2}
           maxLength={500}
-          placeholder="Whats on your mind?"
+          placeholder="Write Something..."
         />
       </label>
       <button className="submit-btn">Submit</button>
