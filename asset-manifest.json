@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/banterbook/static/css/main.df3fce86.chunk.css",
-    "main.js": "/banterbook/static/js/main.5975bb55.chunk.js",
-    "main.js.map": "/banterbook/static/js/main.5975bb55.chunk.js.map",
+    "main.css": "/banterbook/static/css/main.5b74c2d5.chunk.css",
+    "main.js": "/banterbook/static/js/main.5fc4762a.chunk.js",
+    "main.js.map": "/banterbook/static/js/main.5fc4762a.chunk.js.map",
     "runtime-main.js": "/banterbook/static/js/runtime-main.675b9710.js",
     "runtime-main.js.map": "/banterbook/static/js/runtime-main.675b9710.js.map",
-    "static/js/2.79019306.chunk.js": "/banterbook/static/js/2.79019306.chunk.js",
-    "static/js/2.79019306.chunk.js.map": "/banterbook/static/js/2.79019306.chunk.js.map",
+    "static/js/2.59b6a500.chunk.js": "/banterbook/static/js/2.59b6a500.chunk.js",
+    "static/js/2.59b6a500.chunk.js.map": "/banterbook/static/js/2.59b6a500.chunk.js.map",
     "index.html": "/banterbook/index.html",
-    "static/css/main.df3fce86.chunk.css.map": "/banterbook/static/css/main.df3fce86.chunk.css.map",
-    "static/js/2.79019306.chunk.js.LICENSE.txt": "/banterbook/static/js/2.79019306.chunk.js.LICENSE.txt"
+    "static/css/main.5b74c2d5.chunk.css.map": "/banterbook/static/css/main.5b74c2d5.chunk.css.map",
+    "static/js/2.59b6a500.chunk.js.LICENSE.txt": "/banterbook/static/js/2.59b6a500.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.675b9710.js",
-    "static/js/2.79019306.chunk.js",
-    "static/css/main.df3fce86.chunk.css",
-    "static/js/main.5975bb55.chunk.js"
+    "static/js/2.59b6a500.chunk.js",
+    "static/css/main.5b74c2d5.chunk.css",
+    "static/js/main.5fc4762a.chunk.js"
   ]
 }
