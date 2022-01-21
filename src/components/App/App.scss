@@ -10,6 +10,11 @@ iframe {
   display: none;
 }
 
+html {
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 #app,
@@ -26,6 +31,7 @@ body {
   background-repeat: no-repeat;
   font-weight: 400;
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 #root {
@@ -40,6 +46,10 @@ body {
   padding: 30px;
   display: flex;
   justify-content: center;
+
+  @media only screen and (max-width: 476px) {
+    padding: 0 10%;
+  }
 }
 
 textarea {
@@ -100,4 +110,9 @@ a {
 .author {
   text-transform: capitalize;
   font-weight: 700;
+}
+
+.username {
+  color: $grey-1;
+  font-weight: 600;
 }

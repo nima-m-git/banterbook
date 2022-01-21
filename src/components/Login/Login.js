@@ -5,7 +5,7 @@ import "./Login.scss";
 import { Signup } from "./Signup";
 
 const Login = ({ setHeaders }) => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [signupPopup, setSignupPopup] = useState(false);
@@ -14,7 +14,7 @@ const Login = ({ setHeaders }) => {
     e.preventDefault();
     axios
       .post("/login", {
-        email,
+        username,
         password,
       })
       .then((res) => {
@@ -35,11 +35,11 @@ const Login = ({ setHeaders }) => {
           {error && <div className="error">- {error}</div>}
           <label>
             <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
+              type="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
             />
           </label>
           <label>

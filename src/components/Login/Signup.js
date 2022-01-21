@@ -10,6 +10,7 @@ const Signup = ({ closePopup }) => {
     email: "",
     password: "",
     confirmPassword: "",
+    username: "",
     // image: "",
   });
 
@@ -44,7 +45,7 @@ const Signup = ({ closePopup }) => {
       })
       .catch((err) => {
         console.log(err.response);
-        // setErrors([...err?.response?.data?.errors] || err?.response || err);
+        setErrors([...err?.response?.data?.errors] || err?.response || err);
       });
   };
 
@@ -68,7 +69,7 @@ const Signup = ({ closePopup }) => {
       ))}
       {message && <div className="message">{message}</div>}
       <div className="line" />
-      <label>
+      {/* <label>
         <input
           type="text"
           name="firstName"
@@ -85,14 +86,14 @@ const Signup = ({ closePopup }) => {
           onChange={handleChange}
           placeholder="Last Name"
         />
-      </label>
+      </label> */}
       <label>
         <input
-          type="email"
-          name="email"
-          value={inputs.email}
+          type="text"
+          name="username"
+          value={inputs.username}
           onChange={handleChange}
-          placeholder="Email"
+          placeholder="Username"
         />
       </label>
       <label>

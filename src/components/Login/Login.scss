@@ -11,7 +11,8 @@
 
   h2 {
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
+    color: white;
   }
 
   label {
@@ -25,7 +26,6 @@
     margin-top: 5px;
     border-radius: 5px;
     border: 0.5px solid rgba(0, 0, 0, 0.1);
-    background: $input-grey;
     padding: 0.5em 0.8em;
     font-size: 18px;
   }

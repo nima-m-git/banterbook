@@ -99,7 +99,7 @@ const UserCard = ({ user }) => {
       </div>
       <div className="profileInfo">
         <Link to={`/users/${user._id}`}>
-          <div className="name">{user?.fullName}</div>
+          <div className="username">@{user?.username}</div>
         </Link>
         <div className="status">{StatusBtn(user.friendsStatus)}</div>
         <br></br>

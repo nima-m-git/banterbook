@@ -9,6 +9,11 @@
   textarea {
     margin-bottom: 10px;
   }
+
+  .message {
+    margin: auto;
+    margin-top: 1em;
+  }
 }
 
 .posts-container {
@@ -19,7 +24,8 @@
     background: $dark-grey;
     color: rgb(179, 179, 179);
     padding: 1em;
-    min-width: 400px;
+    max-width: 400px;
+    min-width: 350px;
   }
 }
 

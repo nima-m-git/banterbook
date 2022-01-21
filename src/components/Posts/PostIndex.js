@@ -16,7 +16,10 @@ const PostIndex = () => {
         setPosts(res.data.posts);
         setError(res?.data.err);
       })
-      .catch((err) => setError(err));
+      .catch((err) => {
+        setError(err);
+        console.log({ err });
+      });
   }, []);
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const PostIndex = () => {
     <div className="posts-container">
       {error && <div className="error">{error}</div>}
       <PostForm refresh={getPosts} />
-      {posts.map((post) => {
+      {posts?.map((post) => {
         return <Post {...{ post }} refresh={getPosts} key={post._id} />;
       })}
     </div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AnimatePresence, motion, AnimateSharedLayout } from "framer-motion";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CommentBox } from "./CommentBox";
 
@@ -9,8 +9,8 @@ import { base64ToString } from "../../imageBufferDataToString";
 
 const ExpandLikes = ({ post }) => (
   <div className="expanded-likes">
-    {post?.likes.map((like, i) => (
-      <li key={i}>{like.fullName}</li>
+    {post?.likes?.map((like, i) => (
+      <li key={i}>{like.username}</li>
     ))}
   </div>
 );
@@ -18,6 +18,14 @@ const ExpandLikes = ({ post }) => (
 const Post = ({ refresh, post }) => {
   const [expandLikes, setExpandLikes] = useState(false);
   const [showRespond, setShowRespond] = useState(false);
+
+  useEffect(() => {
+    if (showRespond) {
+      window.scrollTo(0, commentRef.current.offsetTop);
+    }
+  }, [showRespond]);
+
+  const commentRef = useRef(null);
 
   const likePost = async (e) => {
     e.preventDefault();
@@ -37,7 +45,7 @@ const Post = ({ refresh, post }) => {
         <div className="post-info">
           <Link to={`/users/${post.author._id}`}>
             <div className="profilePic">
-              <div className="author">{post.author.fullName}</div>
+              <div className="author">@{post.author.username}</div>
               {post.author?.image && (
                 <img
                   src={
@@ -55,7 +63,9 @@ const Post = ({ refresh, post }) => {
           <div className="stats-bar">
             <span
               className="number-likes"
-              onMouseEnter={() => setExpandLikes(true)}
+              onMouseEnter={() =>
+                setExpandLikes(post.likes.length ? true : false)
+              }
               onMouseLeave={() => setExpandLikes(false)}
             >
               {post?.likes?.length || "0"} Likes
@@ -88,7 +98,7 @@ const Post = ({ refresh, post }) => {
               .map((comment) => {
                 return (
                   <div className="comment" key={comment._id}>
-                    <div className="author">@{comment?.author?.fullName}</div>
+                    <div className="author">@{comment?.author?.username}</div>
                     <p className="content">{comment.content}</p>
                   </div>
                 );
@@ -105,6 +115,7 @@ const Post = ({ refresh, post }) => {
                   collapsed: { opacity: 0, height: 0 },
                 }}
                 transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                ref={commentRef}
               >
                 <CommentBox {...{ refresh }} postId={post._id} />
               </motion.div>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const CommentBox = ({ postId, refresh }) => {
   const [comment, setComment] = useState("");
@@ -34,10 +34,11 @@ const CommentBox = ({ postId, refresh }) => {
     <motion.form
       className="comment-box"
       onSubmit={handleSubmit}
-      // key="commentBox"
+      key="commentBox"
       // initial={{ y: -25, height: "0px" }}
       // animate={{ y: 0, height: "fit-content" }}
       // exit={{ y: -25, height: "0px" }}
+      variants={{ collapsed: { scaleY: 0, y: -25 }, open: { scaleY: 1, y: 0 } }}
     >
       <TextareaAutosize
         onChange={(e) => setComment(e.target.value)}
